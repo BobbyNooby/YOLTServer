@@ -31,3 +31,6 @@ modrinth:zconfig
 # Voice
 modrinth:simple-voice-chat
 modrinth:sound-physics-remastered
+
+# Rendering / LOD
+modrinth:voxy-server-side

@@ -52,6 +52,14 @@ def download(url, path, sha512=None):
     os.replace(path + ".part", path)
 
 
+def file_sha512(path):
+    h = hashlib.sha512()
+    with open(path, "rb") as f:
+        while chunk := f.read(1 << 20):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def parse(entry):
     source, _, rest = entry.partition(":")
     if not rest:
@@ -114,7 +122,13 @@ def main():
             for filename, url, sha, label in results:
                 path = os.path.join(MODS_DIR, filename)
                 if os.path.exists(path):
-                    print(f"  ok    {filename}  ({label})")
+                    # A jar whose filename carries no version can never be detected as
+                    # stale by name alone, so compare content when the API gives a hash.
+                    if sha and file_sha512(path) != sha:
+                        print(f"  upd   {filename}  ({label})")
+                        download(url, path, sha)
+                    else:
+                        print(f"  ok    {filename}  ({label})")
                 else:
                     print(f"  get   {filename}  ({label})")
                     download(url, path, sha)
