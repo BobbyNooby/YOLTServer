@@ -1,0 +1,36 @@
+# YOLTServer - Minecraft 26.3 / Fabric 0.20.1
+#
+# System unit. Edit the three paths below for your machine, then:
+#   sudo cp systemd/YOLTServer.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now YOLTServer
+#
+# No root? Run it as a user unit instead: drop the User= line, replace
+# /srv/YOLTServer with %h/YOLTServer, put the file in ~/.config/systemd/user/,
+# and use `systemctl --user` (requires lingering: loginctl enable-linger $USER).
+[Unit]
+Description=YOLTServer (Minecraft 26.3 / Fabric)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=minecraft
+WorkingDirectory=/srv/YOLTServer
+ExecStart=/srv/YOLTServer/start.sh
+# Graceful stop: the server saves chunks on SIGTERM. Give it time before SIGKILL.
+KillSignal=SIGTERM
+TimeoutStopSec=120
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Housekeeping
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/srv/YOLTServer
+
+[Install]
+WantedBy=multi-user.target
