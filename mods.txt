@@ -8,7 +8,7 @@
 # compatible build. Blank lines and #comments are ignored.
 
 modrinth:fabric-api
-github:BobbyNooby/youonlylivetwice@v1.0.0
+github:BobbyNooby/youonlylivetwice
 
 # Optimization / performance
 modrinth:lithium
@@ -23,3 +23,7 @@ modrinth:railoptimization
 modrinth:chunky
 modrinth:disable-portal-checks
 modrinth:recipecooldown
+
+# Dependencies of the mods above
+modrinth:resourceful-config
+modrinth:zconfig

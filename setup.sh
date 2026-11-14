@@ -75,6 +75,14 @@ fi
 say "Fetching mods"
 python3 fetch_mods.py
 
+# ---------- 3b. Mod config ----------
+# YOLT patches PortalForcer, which Lithium's fast_portals also rewrites; both together crash on boot.
+mkdir -p config
+if [ ! -f config/lithium.properties ]; then
+  printf 'mixin.ai.poi.fast_portals=false\n' > config/lithium.properties
+  echo "config/lithium.properties: disabled fast_portals (conflicts with you-only-live-twice)"
+fi
+
 # ---------- 4. EULA ----------
 if [ "$*" != "" ] && printf '%s\n' "$*" | grep -q -- '--accept-eula'; then
   printf 'eula=true\n' > eula.txt
