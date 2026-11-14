@@ -9,3 +9,17 @@
 
 modrinth:fabric-api
 github:BobbyNooby/youonlylivetwice@v1.0.0
+
+# Optimization / performance
+modrinth:lithium
+modrinth:c2me-fabric
+modrinth:scalablelux
+modrinth:vmp-fabric
+modrinth:ferrite-core
+modrinth:krypton
+modrinth:zfastnoise
+modrinth:structure-layout-optimizer
+modrinth:railoptimization
+modrinth:chunky
+modrinth:disable-portal-checks
+modrinth:recipecooldown
