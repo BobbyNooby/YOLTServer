@@ -1,0 +1,11 @@
+# Mods for YOLTServer (Minecraft 26.3 / Fabric).
+# Loaded by fetch_mods.py — jars land in ./mods/ and are gitignored.
+#
+#   modrinth:<slug>[@<version>]      newest (or pinned) Fabric build for 26.3
+#   github:<owner>/<repo>[@<tag>]    .jar asset(s) from that GitHub release
+#
+# Pin with @<version> for reproducibility, or omit it to always take the newest
+# compatible build. Blank lines and #comments are ignored.
+
+modrinth:fabric-api
+github:BobbyNooby/youonlylivetwice@v1.0.0
