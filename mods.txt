@@ -34,3 +34,6 @@ modrinth:sound-physics-remastered
 
 # Rendering / LOD
 modrinth:voxy-server-side
+
+# Access
+modrinth:easywhitelist
