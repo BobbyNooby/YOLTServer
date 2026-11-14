@@ -19,7 +19,7 @@ modrinth:ferrite-core
 modrinth:krypton
 modrinth:zfastnoise
 modrinth:structure-layout-optimizer
-modrinth:railoptimization
+modrinth:railoptimization@2.0
 modrinth:chunky
 modrinth:disable-portal-checks
 modrinth:recipecooldown
